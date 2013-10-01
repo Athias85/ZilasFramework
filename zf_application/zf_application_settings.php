@@ -59,7 +59,7 @@
  * be "enabled" or "disabled". 
  * -----------------------------------------------------------------------------
  */
-    @define('APPLICATION_SEO'        , 'disabled');
+    @define('APPLICATION_SEO'        , 'enabled');
     @define('APPLICATION_CACHING'    , 'disabled');
     @define('APPLICATION_URLENCRYPT' , 'enabled');
     @define('APPLICATION_ENCRYPTION' , 'enabled');

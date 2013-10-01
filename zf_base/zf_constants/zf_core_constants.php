@@ -129,5 +129,23 @@ $navigator_user_agent = strtolower($_SERVER['HTTP_USER_AGENT']);
     defined('APPLICATION_HEADERS')  ? null : define('APPLICATION_HEADERS', APP_LAYOUTS.'app_headers'.DS);
     defined('APPLICATION_FOOTERS')  ? null : define('APPLICATION_FOOTERS', APP_LAYOUTS.'app_footers'.DS);
     
+    
+/**
+ * -----------------------------------------------------------------------------
+ * THIS IS THE ABSOLUTE PATH TO THE "zf_client" directory
+ * -----------------------------------------------------------------------------
+ */
+    defined('ZF_CLIENT')      ? null : define('ZF_CLIENT'      , 'zf_client'.DS);
+    
+/**
+ * -----------------------------------------------------------------------------
+ * THIS IS THE ABSOLUTE PATH TO DIRECTORIES IN THE zf_client DIRECTORY.
+ * -----------------------------------------------------------------------------
+ */
+    defined('ZF_APP_GLOBAL')       ? null : define('ZF_APP_GLOBAL' ,  ZF_CLIENT.'zf_app_global'.DS);
+    defined('ZF_DESKTOP_LAPTOP')   ? null : define('ZF_DESKTOP_LAPTOPL' ,  ZF_CLIENT.'zf_desktop_laptop'.DS);
+    defined('ZF_MOBILE_DEVICE')    ? null : define('ZF_MOBILE_DEVICE' ,  ZF_CLIENT.'zf_mobile_device'.DS);
+    defined('ZF_TABLET_DEVICE')    ? null : define('ZF_TABLET_DEVICE' ,  ZF_CLIENT.'zf_tablet_devices'.DS);
+    
 
 ?>
