@@ -1,5 +1,22 @@
 <?php
 /**
+ * -----------------------------------------------------------------------------
+ * THIS IS CLASS THAT IS ESSENTIAL FOR THE DETECTION OF THE DEVICE THAT IS BEING
+ * USED TO ACCESS THE APPLICATION. IT CAN DETERMINE IF THE DEVICE IS A MOBILE, 
+ * TABLET, LAPTOP OR A DESKTOP DEVICE.
+ * -----------------------------------------------------------------------------
+ *
+ * @author Mathew Juma O. (ATHIAS AVIANS) <mathew@headsafrica.com>
+ * @time  26th/Sepetember/2013  Time: 16:00 EMT
+ * @link http://www.zilasframework.com/
+ * @copyright Copyright &copy; 2013 Zilas Software LLC
+ * @license http://www.zilasframework.com/license/
+ * @version 1.01 Final
+ * @since version 1.01 Final - 11th/August/2013
+ * 
+ */
+
+/**
  * MIT License
  * ===========
  *

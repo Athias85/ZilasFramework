@@ -65,6 +65,19 @@
     @define('APPLICATION_ENCRYPTION' , 'enabled');
     @define('APPLICATION_DECRYPTION' , 'enabled');
     
+    
+/**
+ * -----------------------------------------------------------------------------
+ * THESE ARE CONSTANTS FOR CONFIGURING DEFAULT APPEAREANCE OF BREADCRUMBS, can 
+ * either be "enabled" or "disabled". 
+ * -----------------------------------------------------------------------------
+ */
+    @define('APPLICATION_BREADCRUMBS' ,  'enabled');
+    @define('BREADCRUMBS_SYMBOL'      ,  ' >> ');
+    
+    
+    
+    
  
 
 ?>

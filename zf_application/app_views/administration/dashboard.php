@@ -99,6 +99,12 @@
     echo "<strong>External Link: </strong>";
     Zf_GenerateLinks::zf_external_link($zf_external_link);
     
-    echo "<hr><br>";
+    echo "<br><hr>";
+    echo "<h3>Breadcrumbs Generation Section</h3>";
+    
+    /**
+     * This is the standard way of generating breadcrumbs in zilas framework
+     */
+    Zf_BreadCrumbs::zf_load_breadcrumbs();
 
 ?>

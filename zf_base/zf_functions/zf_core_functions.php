@@ -61,10 +61,23 @@ class Zf_Core_Functions {
     }
     
     
+    public static function Zf_FrameworkTagLine(){
+        
+        $zf_external_link = array(
+            'name' => 'Powered by: Zilas PHP Framework',
+            'link' => 'http://www.zilasframework.com', //Always ensure that the external link starts with http:// or https://
+            'title' => 'My Facebook',
+            'target' => '_blank',
+            'style' => '',
+            'id' => ''
+        );
+    
+        $zf_frameworkTagline = Zf_GenerateLinks::zf_external_link($zf_external_link);;
+        echo  $zf_frameworkTagline;
+        
+    }
+    
 }
-
-
-
 
 
 ?>

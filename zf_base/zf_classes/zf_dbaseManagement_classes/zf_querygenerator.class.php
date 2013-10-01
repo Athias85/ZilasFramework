@@ -1,9 +1,25 @@
 <?php
+
+/**
+ * -----------------------------------------------------------------------------
+ * THIS IS WRAPPER USED FOR GENERATION OF MYSQL QUERIES WHICH ARE TEHN EXECUTED
+ * USING ADODB CLASS.
+ * -----------------------------------------------------------------------------
+ *
+ * @author Mathew Juma O. (ATHIAS AVIANS) <mathew@headsafrica.com>
+ * @time  25th/September/2013  Time: 12:00 EMT
+ * @link http://www.zilasframework.com/
+ * @copyright Copyright &copy; 2013 Zilas Software LLC
+ * @license http://www.zilasframework.com/license/
+ * @version 1.01 Final
+ * @since version 1.01 Final - 11th/August/2013
+ * 
+ */
 /**
  * Ultimate MySQL Wrapper Class
  *
  * @version 2.5.1
- * @author Jeff L. Williams
+ * @author (Initial) Jeff L. Williams
  * @link http://www.phpclasses.org/ultimatemysql
  *
  * Contributions from

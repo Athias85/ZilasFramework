@@ -1,4 +1,20 @@
 <?php
+/**
+ * -----------------------------------------------------------------------------
+ * THIS IS THE CLASS THAT IS ESSENTIAL FOR THE GENERATION OF ALL THE MAPS, AIDED
+ * BY THE GOOGLE MAPPING PLATFORM. YOU PROVIDE IT WITH THE CO-ORDINATES AND IT 
+ * WILL PLOT THE MAPS AS PER GOOGLE MAPPING PLATFORM.
+ * -----------------------------------------------------------------------------
+ *
+ * @added Mathew Juma O. (ATHIAS AVIANS) <mathew@headsafrica.com>
+ * @time  24th/September/2013  Time: 09:00 EMT
+ * @link http://www.zilasframework.com/
+ * @copyright Copyright &copy; 2013 Zilas Software LLC
+ * @license http://www.zilasframework.com/license/
+ * @version 1.01 Final
+ * @since version 1.01 Final - 11th/August/2013
+ * 
+ */
 /*
 Copyright (C) 2012 Vagharshak Tozalakyan <vagh@tozalakyan.com>
 
@@ -31,8 +47,7 @@ Requirements:
 
 class MapBuilderException extends Exception {};
 
-class Zf_MapBuilder 
-{
+class Zf_MapBuilder {
     const MAP_TYPE_ID_HYBRID = 'HYBRID';
     const MAP_TYPE_ID_ROADMAP = 'ROADMAP';
     const MAP_TYPE_ID_SATELLITE = 'SATELLITE';

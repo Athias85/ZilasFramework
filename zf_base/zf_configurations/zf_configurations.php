@@ -62,6 +62,18 @@ class Zf_Configurations {
     private static $zf_applicationdefaults;
     
     
+    /**
+     * -------------------------------------------------------------------------
+     * STORES AN ARRAY CONTAINING BREADCRUMBS SETTINGS FOR THE APPLICATION
+     * -------------------------------------------------------------------------
+     * 
+     * @var string array
+     * @access private
+     * 
+     */
+    private static $zf_applicationbreadcrumbs;
+    
+    
     
     
 
@@ -146,6 +158,28 @@ class Zf_Configurations {
         );
         
         return self::$zf_applicationdefaults;
+    }
+    
+    
+    /**
+     * -------------------------------------------------------------------------
+     * THIS IS A STATIC METHOD THAT RETURNS AN ARRAY HOLDING ALL DEFAULT SETTINGS
+     * OF THE ZILAS BASED APPLICATION.
+     * -------------------------------------------------------------------------
+     *
+     * @var    string array
+     * @access public 
+     */
+    public static function Zf_ApplicationBreadcrumbs(){
+        
+        self::$zf_applicationbreadcrumbs = array(
+            
+            'application_breadcrumbs'    => APPLICATION_BREADCRUMBS,
+            'breadcrumbs_symbol'         => BREADCRUMBS_SYMBOL
+            
+        );
+        
+        return self::$zf_applicationbreadcrumbs;
     }
     
     
