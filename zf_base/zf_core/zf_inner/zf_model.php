@@ -40,14 +40,26 @@ class Zf_Model extends Zf_QueryGenerator {
         
         parent::__construct();
         
-        $databasetype = 'mysql'; 
-        $server = 'localhost';
-        $user   = 'root';
-        $password = 'root';
-        $database = 'inventory';
+        $database_settings = Zf_Configurations::Zf_DatabaseSettings();
+        
+        
+        $databasetype = $database_settings['zf_dbType']; 
+        $server       = $database_settings['zf_dbHost'];
+        $user         = $database_settings['zf_dbUser'];
+        $password     = $database_settings['zf_dbPassword'];
+        $database     = $database_settings['zf_dbName'];
+        $characterset = $database_settings['zf_dbCharacterset'];
+        $connection   = $database_settings['zf_dbConnection'];
 
-        $this->Zf_AdoDB = ADONewConnection($databasetype); 
-        $this->Zf_AdoDB->debug = false; 
+        if($database_settings['zf_dbDebug'] == 'true'){
+           
+            echo "<pre>";print_r($database_settings);echo "</pre><br><br>";
+            
+        }
+        $this->Zf_AdoDB = ADONewConnection($databasetype);
+        
+        $this->Zf_AdoDB->debug = $database_settings['zf_dbDebug']; 
+        
         $this->Zf_AdoDB->Connect($server, $user, $password, $database);
             
     }

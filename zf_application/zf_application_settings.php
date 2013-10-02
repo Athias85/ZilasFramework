@@ -77,8 +77,27 @@
     @define('BREADCRUMBS_SYMBOL'      ,  ' >> ');
     
     
-    
-    
- 
+ /**
+  * -----------------------------------------------------------------------------
+  * THESE ARE CONSTANTS FOR DATABASE CONFIGURATION, THESE DETAILS CAN BE CHANGED
+  * DEPENDING ON THE DATABASE CONNECTION ESTABLISHED 
+  * -----------------------------------------------------------------------------
+  */  
+    @define("DATABASE_HOST"      ,     "127.0.0.1");
+    @define("DATABASE_USERNAME"  ,     "root");
+    @define("DATABASE_PASSWORD"  ,     "root");
+    /**
+     * USE VALID DATABASE DRIVER INCLUDING: access, ado_access, ado_mssql, db2,
+     *  fbsql (FrontBase), firebird, ibase, idap, informix, mssql, mysql, odbc,
+     *  odbc_db2, odbc_mssql, odbc_oracle, oracle, oci8, pdo, postgres,
+     *  postgres7,  postgres8, postgres9,  postgres64, sqlanywhere, sqlite, 
+     *  vfp (Visual Fox Pro)
+     */
+    @define("DATABASE_DRIVER"    ,     "mysql");  
+    @define("DATABASE_NAME"      ,     "inventory");
+    @define("CHARACTER_SET"      ,     "utf8");
+    @define("CONNECTION_TYPE"    ,     false);
+    @define("DATABASE_DEBUG"     ,     false);
+     
 
 ?>

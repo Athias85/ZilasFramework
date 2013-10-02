@@ -73,6 +73,17 @@ class Zf_Configurations {
      */
     private static $zf_applicationbreadcrumbs;
     
+    /**
+     * -------------------------------------------------------------------------
+     * STORES AN ARRAY CONTAINING DATABASE SETTINGS FOR THE APPLICATION
+     * -------------------------------------------------------------------------
+     * 
+     * @var string array
+     * @access private
+     * 
+     */
+    private static $zf_databaseSettings;
+    
     
     
     
@@ -182,6 +193,32 @@ class Zf_Configurations {
         );
         
         return self::$zf_applicationbreadcrumbs;
+    }
+    /**
+     * -------------------------------------------------------------------------
+     * THIS IS A STATIC METHOD THAT RETURNS AN ARRAY HOLDING ALL DEFAULT SETTINGS
+     * OF THE ZILAS BASED APPLICATION.
+     * -------------------------------------------------------------------------
+     *
+     * @var    string array
+     * @access public 
+     */
+    public static function Zf_DatabaseSettings(){
+        
+        self::$zf_databaseSettings = array(
+            
+            'zf_dbHost'          => DATABASE_HOST,
+            'zf_dbUser'          => DATABASE_USERNAME,
+            'zf_dbPassword'      => DATABASE_PASSWORD,
+            'zf_dbType'          => DATABASE_DRIVER,
+            'zf_dbName'          => DATABASE_NAME,
+            'zf_dbCharacterset'  => CHARACTER_SET,
+            'zf_dbConnection'    => CONNECTION_TYPE,
+            'zf_dbDebug'         => DATABASE_DEBUG
+            
+        );
+        
+        return self::$zf_databaseSettings;
     }
     
     
