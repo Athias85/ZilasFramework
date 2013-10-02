@@ -124,6 +124,8 @@ class Zf_Configurations {
         
         self::$zf_applicationstatus = array(
             
+            'application_title'      => APPLICATION_NAME,
+            'application_copyright'  => APPLICATION_COPYRIGHT,
             'application_status'     => APPLICATION_STATUS,
             'construction_indicator' => CONSTRUCTION_INDICATOR,
             'default_controller'     => DEFAULT_CONTROLLER

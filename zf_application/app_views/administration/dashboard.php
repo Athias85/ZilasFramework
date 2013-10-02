@@ -108,13 +108,5 @@
     Zf_BreadCrumbs::zf_load_breadcrumbs();
     
     
-    
-    echo "<br><hr>";
-    echo "<h3>Breadcrumbs Generation Section</h3>";
-    
-    /**
-     * This is the standard way of generating SEO in zilas framework
-     */
-    Zf_GenerateSEO::zf_load_seo();
 
 ?>

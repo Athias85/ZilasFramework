@@ -44,84 +44,117 @@ class Zf_GenerateSEO{
         /**
          * Check to see that SEO capability of the framework has been enabled.
          */
-        $zf_seo_status = Zf_Configurations::Zf_ApplicationDefaults();
+        $zf_seoStatus = Zf_Configurations::Zf_ApplicationDefaults();
         
         $zf_applicationStatus   = Zf_Configurations::Zf_ApplicationStatus();
         
-        if($zf_seo_status['application_seo'] == 'enabled'){
-            
-            
-            
-            $current_controller = Zf_Core_Functions::Zf_URLSanitize();
-            
-            $zf_controller = $current_controller[0];
+        if($zf_seoStatus['application_seo'] == "enabled"){
             
             /**
-             * --------------------------------------------------------------------
-             * IN THIS SECTION, WE TRY TO LOCATE THE VALID "view_files" DIRECTORY
-             * TO BE SCANNED AND EXECUTED DEPENDING ON THE RUNNING CONTROLLER
-             * --------------------------------------------------------------------
-             * 
+             * We check the application status, i.e if application is disabled
+             * or enabled.
              */
-            if (($zf_applicationStatus['application_status'] === 'disabled') && ($zf_applicationStatus['construction_indicator'] == 'default')) {
-
-                /**
-                 * This is the "view_files" directory for the default construction
-                 * view
-                 */
-                $zf_seo_view = ASSETS_VIEWS . "zf_default_construction" . DS . "view_client" . DS ."zf_view_global" . DS . "view_files" . DS . "zf_seo.php";
+            if($zf_applicationStatus['application_status'] == "enabled"){
                 
-            } else if (($zf_applicationStatus['application_status'] === 'disabled') && ($zf_applicationStatus['construction_indicator'] == 'custom')) {
-
-                /**
-                 * This is the "view_files" directory for the custom construction
-                 * view
-                 */
-                $zf_seo_view = APP_VIEWS_ASSETS . "zf_custom_construction" . DS . "view_client" . DS ."zf_view_global" . DS . "view_files" . DS . "zf_seo.php";
+                $zf_view_controller = Zf_Core_Functions::Zf_URLSanitize();
+               
+                if(empty($zf_view_controller[0])){
+                    
+                    /**
+                     * Here we construct the default controller
+                     */
+                    $controller_view = explode('-', $zf_applicationStatus['default_controller']);
+                    $zf_seo_view = $controller_view[0];
+                    
+                    $zf_seo_file = APP_VIEWS . $zf_seo_view . DS . "view_client".DS."zf_view_global". DS ."view_files". DS ."view_seo". DS ."zf_seo.php" ;                   
+                    
+                }else{
+                    
+                    $zf_seo_view = $zf_view_controller[0];
+                    
+                    $zf_seo_file = APP_VIEWS . $zf_seo_view . DS ."view_client".DS."zf_view_global". DS ."view_files". DS ."view_seo". DS ."zf_seo.php" ;
+                    
+                }
                 
-            } else {
-
-                    $zf_seo_view = APP_VIEWS . $zf_controller . DS . "view_client" . DS ."zf_view_global" . DS . "view_files" . DS . "zf_seo.php";
+                
+            }else if($zf_applicationStatus['application_status'] == "disabled"){
+                
+                /**
+                 * Check for the construction indicator in use. It can either
+                 * be default or custom
+                 */
+                if($zf_applicationStatus['construction_indicator'] == "default"){
+                    
+                    $zf_seo_file = ASSETS_VIEWS . "zf_default_construction" . DS . "view_client". DS ."zf_view_global". DS ."view_files". DS ."view_seo". DS ."zf_seo.php" ;
+                    
+                }else if($zf_applicationStatus['construction_indicator'] == "custom"){
+                    
+                    $zf_seo_file = APP_VIEWS_ASSETS . "zf_custom_construction" . DS . "view_client".DS."zf_view_global". DS ."view_files". DS ."view_seo". DS ."zf_seo.php";
+                    
+                }
                 
             }
             
-            /**
-             * If SEO has been enabled, then we check for the availability of 
-             * the seo file in the view, if yes, we load it, if no, we load the 
-             * SEO file from the global application view.
-             */
-            if(file_exists($zf_seo_view)){
+            if(file_exists($zf_seo_file)){
                 
-                require_once $zf_seo_view;
+                echo '<link rel="shortcut icon" href="'.ZF_ROOT_PATH.ZF_APP_GLOBAL.'app_global_files/app_global_images/favicon.ico" type="image/x-icon">';
+                echo '<link rel="icon" href="'.ZF_ROOT_PATH.ZF_APP_GLOBAL.'app_global_files/app_global_images/favicon.ico" type="image/x-icon">';
+                
+                /**
+                 * Load the seo file related to the view that is being rendered
+                 * at the moment.
+                 */
+                require_once $zf_seo_file;
                 
             }else{
                 
                 /**
-                 * If SEO has been disabled then we take the default SEO File from
-                 * the global application view.
+                 * Path to the Global SEO file.
                  */
+                $zf_seo_file = $zf_seo_file = ZF_APP_GLOBAL."app_global_files". DS ."app_global_seo". DS ."zf_seo.php";
                 
-                $zf_seo_file = ZF_APP_GLOBAL . "app_global_files" . DS . "app_global_seo" . DS . "zf_seo.php";
+                if(file_exists($zf_seo_file)){
+                    
+                    echo '<link rel="shortcut icon" href="'.ZF_ROOT_PATH.ZF_APP_GLOBAL.'app_global_files/app_global_images/favicon.ico" type="image/x-icon">'; 
+                    echo '<link rel="icon" href="'.ZF_ROOT_PATH.ZF_APP_GLOBAL.'app_global_files/app_global_images/favicon.ico" type="image/x-icon">';
+                
+                    /**
+                     * Require the global seo file if the application SEO ability is
+                     * disabled. 
+                     */
+                    require_once $zf_seo_file;
+                    
+                } else {
 
-                /**
-                 * Require the global SEO file
-                 */
-                require_once $zf_seo_file;
+                    echo "<code><strong>Your application lacks a global SEO file<br>This will compromise search engine rankings for this site or application!!</strong><code>";
+                
+                }
                 
             }
-            
+                 
         }else{
             
             /**
-             * If SEO has been disabled then we take the default SEO File from
-             * the global application view.
+             * check for the existence of the SEO file in the Global View
              */
-            $zf_seo_file = ZF_APP_GLOBAL . "app_global_files" . DS . "app_global_seo" . DS . "zf_seo.php" ;
+            $zf_seo_file = ZF_APP_GLOBAL."app_global_files". DS ."app_global_seo". DS ."zf_seo.php";
             
-            /**
-             * Require the global SEO file
-             */
-            require_once $zf_seo_file;
+            if(file_exists($zf_seo_file)){
+                
+                echo '<link rel="shortcut icon" href="'.ZF_ROOT_PATH.ZF_APP_GLOBAL.'app_global_files/app_global_images/favicon.ico" type="image/x-icon">'; 
+                echo '<link rel="icon" href="'.ZF_ROOT_PATH.ZF_APP_GLOBAL.'app_global_files/app_global_images/favicon.ico" type="image/x-icon">';
+
+                /**
+                 * Require the global seo file if the application SEO ability is
+                 * disabled. 
+                 */
+                require_once $zf_seo_file;
+                
+            }else{
+                
+                echo "<code><strong>Your application lacks a global SEO file<br>This will compromise search engine rankings for this site or application!!</strong><code>";
+                
+            }
             
         }
         

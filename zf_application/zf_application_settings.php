@@ -23,9 +23,10 @@
  * NAME, and ALSO APPLICATION LOGO PATH
  * -----------------------------------------------------------------------------
  */
-    @define('APPLICATION_FOLDER'    , 'http://localhost/myProjects/ZilasFramework/');
+    @define('APPLICATION_FOLDER'    , 'http://localhost/MyProjects/ZilasFramework/');
     @define('APPLICATION_NAME'      , 'Zilas PHP - Framework');
-    @define('APPLICATION_LOGO'      , 'http://localhost/myProjects/ZilasFramework/client/zf_files/images/logo.png');
+    @define('APPLICATION_LOGO'      , 'http://localhost/MyProjects/ZilasFramework/zf_client/zf_app_global/app_global_files/app_global_images/logo.png');
+    @define('APPLICATION_COPYRIGHT' , 'Zilas PHP Framework &copy; '.date('Y'));
     
     
 /**
@@ -41,7 +42,7 @@
  * THIS CONSTANT HOLDS THE CONSTRUCTION INDICATOR i.e default or custom
  * -----------------------------------------------------------------------------
  */
-    @define('CONSTRUCTION_INDICATOR', 'custom');
+    @define('CONSTRUCTION_INDICATOR', 'default');
     
     
 /**

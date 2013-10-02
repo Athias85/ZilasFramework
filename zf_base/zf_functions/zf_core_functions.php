@@ -61,6 +61,28 @@ class Zf_Core_Functions {
     }
     
     
+    
+    /**
+     * -------------------------------------------------------------------------
+     * THIS IS THE STATIC METHOD FOR GENERATING THE APPLICATION COPYRIGHT
+     * INFORMATION
+     * -------------------------------------------------------------------------
+     */
+    public static function Zf_ApplicationCopyright(){
+        
+        $zf_applicationcopyright = Zf_Configurations::Zf_ApplicationStatus();
+        
+        echo  $zf_applicationcopyright['application_copyright'];
+        
+    }
+    
+    
+    /**
+     * -------------------------------------------------------------------------
+     * THIS IS THE STATIC METHOD FOR GENERATING THE "powered by..." FRAMEWORK 
+     * TAGLINE.
+     * -------------------------------------------------------------------------
+     */
     public static function Zf_FrameworkTagLine(){
         
         $zf_external_link = array(

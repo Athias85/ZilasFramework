@@ -78,7 +78,7 @@ class Zf_Autoload{
      * @access private
      * 
      */
-    private $_zf_ignore_files = array('.', '..', '.DS_Store',"adodb5");
+    private $_zf_ignore_files = array('.', '..', '.DS_Store',"adodb5","zf_seo.php");
     
     
     /**

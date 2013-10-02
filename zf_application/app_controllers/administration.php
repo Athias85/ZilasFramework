@@ -19,7 +19,7 @@
 class AdministrationController extends Zf_Controller {
    
     
-    public $zf_defaultAction = "dashboard";
+    public $zf_defaultAction = "index";
 
 
 
@@ -29,8 +29,6 @@ class AdministrationController extends Zf_Controller {
          * CALL THE CONSTRUCTOR OF THE PARENT CLASS.
          */
         parent::__construct();
-        
-        echo "This is the administration controller<br>";
         
     }
 

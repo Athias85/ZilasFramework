@@ -29,9 +29,6 @@ class Zf_Default_ConstructionController extends Zf_Controller {
          * CALL THE CONSTRUCTOR OF THE PARENT CLASS.
          */
         parent::__construct();
-        
-        echo "This is the default construction controller<br>";
-        
     }
 
     

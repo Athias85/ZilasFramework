@@ -20,34 +20,49 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
     <head>
-        <title>The Zilas PHP Framework</title>
-        
-        <!--Meta tags utilised specifically by Zilas PHP Framework goes in this section-->
-        <meta name="description" content="Zilas PHP Framework is an open, easy and most secure. First in Africa">
-        <meta name="keywords" content="Zilas PHP Framework, Zilas PHP, Zilas Framework, PHP Framework, Secure, Open, Easy, African Framework">
-        <meta name="author" content="Mathew Juma O (Athias Avians)">
-        <meta charset="UTF-8">
-            
         <?php
+        
+            /**
+             * This loads all the SEO files depending on whether the SEO ability
+             * of the framework has been enabled or not. If the SEO ability is
+             * enabled then the SEO files are view specific if and only if they
+             * exist in the particular view.
+             */
+            Zf_GenerateSEO::zf_load_seo();    
             
             /**
              * This is loads all the CSS and Javascript files that are global to
              * the application and even those that are specific to a given view 
              * of the application
              */
-            
             Zf_ClientAutoload::Zf_loadCssScriptsFonts($zf_currentController, $zf_targetView);
         
-        
-        ?>    
-            
-            
+        ?>        
     </head>
     <body>
         
         <!--This is the start of the page's header section-->
         <div class="zf_content_header">
-            Header goes here.<br>
+            <?php
+                /**
+                 * THIS IS THE DEFAULT WAY OF LOADING YOUR LOGO TO ANY VIEW OF
+                 * THE APPLICATION
+                 * 
+                 * This method expects an array of data which controls the look
+                 * and feel of the logo.
+                 * 
+                 */
+                $zf_logo_data = array(
+                    'width'       => '300px',
+                    'height'      => '75px',
+                    'alt' => 'Zilas PHP Framework Logo',
+                    'style'       => '',
+                    'id'          => ''
+                );
+                
+                Zf_LoadImages::zf_loadLogo($zf_logo_data);
+            ?>
+            <br>
         </div>
         <!--This is the end of the page's header section-->
         

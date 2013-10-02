@@ -30,8 +30,6 @@ class Zf_templateController extends Zf_Controller {
          */
         parent::__construct();
         
-        echo "This is the index controller<br>";
-        
     }
 
     
